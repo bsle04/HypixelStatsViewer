@@ -11,7 +11,7 @@ import hypixel
 import sys
 sys.setrecursionlimit(2000)
 
-
+#Webscrape function
 def hypixelScrape():
     username = input('Enter a Hypixel username: ')
     # op = webdriver.ChromeOptions()
@@ -40,24 +40,25 @@ def hypixelScrape():
 
     print(username + "'s Bedwars FKDR: " + fkdr)
 
-def getBasicInfo():
-    API_KEYS = ['b8a3318c-d0f5-4dcf-b8c9-ecc8efbf4a55']
-    hypixel.setKeys(API_KEYS) # This sets the API keys that are going to be used.
+#First pass at using hypixelpy, I believe it is outdated as some of its api calls are deprecated.
+# def getBasicInfo():
+#     API_KEYS = ['b8a3318c-d0f5-4dcf-b8c9-ecc8efbf4a55']
+#     hypixel.setKeys(API_KEYS) # This sets the API keys that are going to be used.
 
-    Player = hypixel.Player('123shawty') # This creates a Player-object and puts it to a variable called "Player".
+#     Player = hypixel.Player('123shawty') # This creates a Player-object and puts it to a variable called "Player".
 
-    PlayerName = Player.getName() # This gets the player's name and puts it in a variable called "PlayerName". :3
-    print("Player is called ", end='')
-    print(PlayerName)
+#     PlayerName = Player.getName() # This gets the player's name and puts it in a variable called "PlayerName". :3
+#     print("Player is called ", end='')
+#     print(PlayerName)
 
-    PlayerLevel = Player.getLevel()
-    print(PlayerName + " is level: ", end='')
-    print(PlayerLevel) # This prints the level that we got, two lines up!
+#     PlayerLevel = Player.getLevel()
+#     print(PlayerName + " is level: ", end='')
+#     print(PlayerLevel) # This prints the level that we got, two lines up!
 
-    PlayerRank = Player.getRank()
-    print(PlayerName + " is rank: ", end='')
-    print(PlayerRank['rank'])
+#     PlayerRank = Player.getRank()
+#     print(PlayerName + " is rank: ", end='')
+#     print(PlayerRank['rank'])
 
 
 if __name__ == '__main__':
-    getBasicInfo()
+    hypixelScrape()
