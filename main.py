@@ -1,11 +1,18 @@
+from gevent import monkey
+monkey.patch_all(thread=False, select=False)
+
 from selenium import webdriver
 from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import hypixel
+import sys
+sys.setrecursionlimit(2000)
 
-def hypixel():
+
+def hypixelScrape():
     username = input('Enter a Hypixel username: ')
     # op = webdriver.ChromeOptions()
     # op.add_argument('headless')
@@ -33,5 +40,24 @@ def hypixel():
 
     print(username + "'s Bedwars FKDR: " + fkdr)
 
+def getBasicInfo():
+    API_KEYS = ['b8a3318c-d0f5-4dcf-b8c9-ecc8efbf4a55']
+    hypixel.setKeys(API_KEYS) # This sets the API keys that are going to be used.
+
+    Player = hypixel.Player('123shawty') # This creates a Player-object and puts it to a variable called "Player".
+
+    PlayerName = Player.getName() # This gets the player's name and puts it in a variable called "PlayerName". :3
+    print("Player is called ", end='')
+    print(PlayerName)
+
+    PlayerLevel = Player.getLevel()
+    print(PlayerName + " is level: ", end='')
+    print(PlayerLevel) # This prints the level that we got, two lines up!
+
+    PlayerRank = Player.getRank()
+    print(PlayerName + " is rank: ", end='')
+    print(PlayerRank['rank'])
+
+
 if __name__ == '__main__':
-    hypixel()
+    getBasicInfo()
