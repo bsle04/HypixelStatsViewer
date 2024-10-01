@@ -39,6 +39,8 @@ def hypixelScrape():
     driver.quit()
 
     print(username + "'s Bedwars FKDR: " + fkdr)
+    if(float(fkdr) > 10.00):
+        print("Dodge!!!!")
 
 #First pass at using hypixelpy, I believe it is outdated as some of its api calls are deprecated.
 # def getBasicInfo():
