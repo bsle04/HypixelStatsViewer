@@ -7,7 +7,7 @@ response = requests.get(
     url="https://api.hypixel.net/player",
     params={
         "key": "b8a3318c-d0f5-4dcf-b8c9-ecc8efbf4a55", #don't need to change api key for different players
-        "name": "123shawty" #enter player name here
+        "name": "glimmadora" #enter player name here
     }
 )
 
@@ -17,7 +17,7 @@ data = response.json()
 df = pd.json_normalize(data)
 
 # Print all columns to verify the structure / column names
-print(df.columns)
+print(df.columns) # idk why columns not loading correctly
 df.to_csv('test.csv') #test export
 
 try:
